@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   if(completed) return null
   return (
-    <div className="col-4 card-group">
+    <div className="col-12 col-sm-12 col-md-6 col-lg-4 card-group">
       <div className="card shadow-sm">
         <div
           style={{
