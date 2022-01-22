@@ -21,15 +21,13 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
           <p className="card-title display-6">
             {props.item.title}
           </p>
-          <div className="d-flex justify-content-between align-item-center">
-            <h5>
-              {days} days &nbsp;{ hours } hr : {minutes} min : {seconds} sec
-            </h5>
-          </div>
+          <h5>
+            {days} days &nbsp;{ hours } hr : {minutes} min : {seconds} sec
+          </h5>
 
           <p className="card-subtitle">{props.item.desc}</p>
-          <div className="d-flex justify-content-between align-item-center">
-            <div className="btn-group d-flex align-items-center">
+          <div className="d-flex justify-content-between">
+            <div className="d-flex btn-group align-items-center">
               {
                 props?.owner?.email === props?.item?.email ? (
                   <div
@@ -62,14 +60,14 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
 }
 
 export const AuctionCard = ({item}) => {
-  let expiredDate = item.duration
+  let durationBeforeExpire = item.duration
   const {currentUser, bidAuction, endAuction} = useContext(AuthContext)
   return (
     <Countdown
       owner={currentUser}
       bidAuction={bidAuction}
       endAuction={endAuction}
-      date={expiredDate}
+      date={durationBeforeExpire}
       item={item}
       renderer={renderer}
     />

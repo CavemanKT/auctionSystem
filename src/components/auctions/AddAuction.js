@@ -29,14 +29,16 @@ export const AddAuction = ({setAuction}) => {
     e.preventDefault();
     setErr('');
 
-    if (!imgTypes.includes(itemImageRef.current.files[0].type)) {
-      return setErr('Please only upload png, jpeg or jpg type image');
-    }
+    // form validation
+    if(!itemTitleRef?.current?.value) return setErr('Please name your stuff.')
+    if(!itemDescriptionRef?.current?.value) return setErr('Please describe your item')
+    if(!startPriceRef?.current?.value) return setErr('Please name your price')
+    if(!itemDurationRef?.current?.value) return setErr('How long do you want the bidding last ? Please input the value in hour')
+    if(!itemImageRef?.current?.files[0] ) return setErr('Please upload an image')
+    if(!imgTypes.includes(itemImageRef.current.files[0].type)) return setErr('Please only upload png, jpeg or jpg type image');
 
-    let currentDate = new Date();
-    let dueDate = currentDate.setHours(
-      currentDate.getHours() + itemDurationRef.current.value
-    );
+    let hr = itemDurationRef.current.value * 60 * 60 * 1000
+    let duration = Date.now() + hr
 
     console.log(itemImageRef.current.files[0], itemImageRef.current.files[0].name);
     let imgName = itemImageRef.current.files[0].name
@@ -45,7 +47,7 @@ export const AddAuction = ({setAuction}) => {
       title: itemTitleRef.current.value,
       desc: itemDescriptionRef.current.value,
       curPrice: startPriceRef.current.value,
-      duration: dueDate,
+      duration,
       itemImage: itemImageRef.current.files[0],
       imgName
     };
