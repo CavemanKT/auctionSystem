@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   if(completed) return null
   return (
-    <div className="col">
+    <div className="col-4 card-group">
       <div className="card shadow-sm">
         <div
           style={{
@@ -15,10 +15,10 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center'
           }}
-          className="w-130"
+          className="w-130 m-3"
         />
         <div className="card-body">
-          <p className="lead display-6">
+          <p className="card-title display-6">
             {props.item.title}
           </p>
           <div className="d-flex justify-content-between align-item-center">
@@ -27,14 +27,14 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
             </h5>
           </div>
 
-          <p className="card-">{props.item.desc}</p>
+          <p className="card-subtitle">{props.item.desc}</p>
           <div className="d-flex justify-content-between align-item-center">
             <div className="btn-group d-flex align-items-center">
               {
                 props?.owner?.email === props?.item?.email ? (
                   <div
                     className="btn btn-outline-secondary"
-                    onClick={() => props.endAuction(props.item.id)}
+                    onClick={() => props.endAuction(props.item.id, props.item.imgName)}
                   >
                     Cancel Auction
                   </div>
