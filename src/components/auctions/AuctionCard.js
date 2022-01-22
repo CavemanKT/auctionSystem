@@ -17,7 +17,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
           }}
           className="w-130 m-3"
         />
-        <div className="card-body">
+        <div className="card-body flex-column d-flex">
           <p className="card-title display-6">
             {props.item.title}
           </p>
@@ -26,7 +26,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
           </h5>
 
           <p className="card-subtitle">{props.item.desc}</p>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between mt-auto">
             <div className="d-flex btn-group align-items-center">
               {
                 props?.owner?.email === props?.item?.email ? (
