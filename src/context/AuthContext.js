@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { authApp, firestoreApp } from "../config/firebase";
+import { authApp, firestoreApp, storage, ref, deleteObject } from "../config/firebase";
 
 export const AuthContext = createContext()
 
@@ -33,8 +33,13 @@ export const AuthProvider = ({children}) => {
     })
   }
 
-  const endAuction = (auctionId) => {
+  const endAuction = async(auctionId, imgName) => {
     const db = firestoreApp.collection('auctions')
+    console.log(imgName, storage);
+
+    const itemStorageRef = ref(storage, `${imgName}`)  // or storageApp.ref(storage, `${imgName}`)
+    await deleteObject(itemStorageRef)
+
     return db.doc(auctionId).delete()
   }
 

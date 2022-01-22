@@ -17,8 +17,10 @@ const useStorage = data => {
     }, async() => {
       const imgUrl = await storageRef.getDownloadURL();
       const createdAt = timestamp();
+      const imgName=data.itemImage.name
+      console.log(data.itemImage.name, imgName)
       delete data.itemImage;
-      await collectionRef.add({...data, createdAt, imgUrl})
+      await collectionRef.add({...data, createdAt, imgUrl, imgName })
       setIsCompleted(true)
     })
   }, [data])
