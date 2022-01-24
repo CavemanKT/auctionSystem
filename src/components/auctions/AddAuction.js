@@ -56,10 +56,14 @@ export const AddAuction = ({setAuction}) => {
     closeForm();
   }
 
+
   return (
     <>
       <div className="col d-flex justify-content-center">
         <div className="btn btn-outline-secondary mx-2" onClick={openForm}>
+          + Auction
+        </div>
+        <div className="btn btn-outline-secondary mx-2 hover:animate-ping absolute" onClick={openForm}>
           + Auction
         </div>
       </div>
