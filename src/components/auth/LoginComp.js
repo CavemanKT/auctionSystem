@@ -32,7 +32,7 @@ export const LoginComp = () => {
 
   return (
     <>
-      <div className="btn btn-outline-secondary mx-2" onClick={openForm}>
+      <div className="rounded-lg px-3 py-2 text-slate-700 font-medium bg-emerald-200 hover:bg-emerald-400 hover:text-slate-900 inline cursor-pointer mr-4" onClick={openForm}>
         Login
       </div>
 
