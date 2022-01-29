@@ -23,6 +23,7 @@ const app = firebase.initializeApp({
 //   },
 // }
 
+export const clientId = process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID
 export const timestamp = firebase.firestore.FieldValue.serverTimestamp
 export const firestoreApp = app.firestore()
 export const storageApp = app.storage()

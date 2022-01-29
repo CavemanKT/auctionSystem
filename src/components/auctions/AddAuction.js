@@ -43,12 +43,12 @@ export const AddAuction = ({setAuction}) => {
     console.log(itemImageRef.current.files[0], itemImageRef.current.files[0].name);
     let imgName = itemImageRef.current.files[0].name
     let newAuction = {
-      email: currentUser.email,
-      title: itemTitleRef.current.value,
-      desc: itemDescriptionRef.current.value,
-      curPrice: startPriceRef.current.value,
+      email: currentUser?.email,
+      title: itemTitleRef?.current?.value,
+      desc: itemDescriptionRef?.current?.value,
+      curPrice: startPriceRef?.current?.value,
       duration,
-      itemImage: itemImageRef.current.files[0],
+      itemImage: itemImageRef?.current?.files[0],
       imgName
     };
 
@@ -122,7 +122,7 @@ export const AddAuction = ({setAuction}) => {
                   <Form.Label>
                     Seller
                   </Form.Label>
-                  <Form.Control type="text" value={currentUser.email} readOnly />
+                  <Form.Control type="text" value={currentUser?.email} readOnly />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>

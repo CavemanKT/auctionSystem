@@ -1,17 +1,26 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useFirestore } from '../../hooks/useFirestore';
 import { AddAuction } from './AddAuction';
 import { ProgressBar } from './ProgressBar';
 import { AuctionCard } from './AuctionCard';
 import Alert from 'react-bootstrap/Alert'
+import { useGoogleAuth } from '../../hooks/useGoogleAuth';
 
 export const AuctionBody = () => {
   const [ auction, setAuction] = useState(null)
   const {currentUser, globalMsg} = useContext(AuthContext)
+  const { googleCredentials } = useGoogleAuth()
   const {docs } = useFirestore('auctions')
 
+  
+  // useEffect(()=>{
+    
+  // })
+
+  console.log(googleCredentials);
   console.log(docs);
+  
   return (
     <>
       <div className="py-5">
@@ -21,16 +30,15 @@ export const AuctionBody = () => {
         }
 
         {
-          ! currentUser && globalMsg && <Alert variant="info">{globalMsg}</Alert>
+          !currentUser && globalMsg && <Alert variant="info">{globalMsg}</Alert>
         }
 
         {
-          currentUser && (
+          (currentUser || googleCredentials) && (
             <div className="mb-5">
               <AddAuction setAuction={setAuction} />
             </div>
           )
-
         }
 
         {
