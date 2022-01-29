@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useFirestore } from '../../hooks/useFirestore';
 import { AddAuction } from './AddAuction';
