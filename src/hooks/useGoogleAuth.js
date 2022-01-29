@@ -1,4 +1,4 @@
-import {useState, useEffect, useReducer} from 'react';
+import {useState} from 'react';
 
 export const useGoogleAuth = () => {
     
@@ -11,9 +11,6 @@ export const useGoogleAuth = () => {
     const googleAuthLogout = () => {
         setGoogleCredentials(null)
     }
-
-    console.log(googleCredentials);
-
 
     return {
         googleCredentials,
