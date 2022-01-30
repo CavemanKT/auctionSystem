@@ -69,7 +69,7 @@ export const NavComp = () => {
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 isSignedIn={true}
-                cookiePolicy={'single_host_origin'}
+                cookiePolicy={'https://auction-system-three.vercel.app'}
             />
             )
           }
