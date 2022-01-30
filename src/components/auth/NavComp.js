@@ -69,7 +69,7 @@ export const NavComp = () => {
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 isSignedIn={true}
-                cookiePolicy={process.env.REACT_APP_GOOGLE_AUTH_ORIGIN}
+                cookiePolicy={'single_host_origin'}
             />
             )
           }
